@@ -55,9 +55,13 @@ class LoginDatabase{
 
 
   }
-  Future<List<Map<String,dynamic>>> read(int id) async{
+  Future<List<LoginCredential>> read() async{
     final db = await instance.database;
-    return await db.query(_tableName);
+    List<Map<String,dynamic>> update =await db.query(_tableName);
+     return update.map((e) => LoginCredential.fromJson(e)).toList();
+
+
+
 
 
   }

@@ -9,19 +9,20 @@ class HomePageScreen extends StatefulWidget{
 
 }
 class HomePageScreenState extends State<HomePageScreen>{
+ List<LoginCredential>  data=[];
+  bool isLoading = true;
   @override
   void initState(){
     super.initState();
     getData();
   }
-  // int? id;
-   LoginCredential? credential;
-  String email="";
-  String? passwd="";
-
 
   Future getData() async{
-    this.credential= (await  LoginDatabase.instance.read(credential.id)) ;
+   this.data=await  LoginDatabase.instance.read() ;
+   print(data);
+   setState(() => isLoading = false);
+
+
   }
   @override
   Widget build(BuildContext context) {
@@ -40,10 +41,10 @@ class HomePageScreenState extends State<HomePageScreen>{
             ),
             ),
             Padding(padding: EdgeInsets.only(top: 20,left: 20),
-          child:  Text(credential!.email,style: TextStyle(fontSize: 16,fontWeight:FontWeight.w700),),
+          child:  Text(data[12].email,style: TextStyle(fontSize: 16,fontWeight:FontWeight.w700),),
             ),
             Padding(padding: EdgeInsets.only(left: 20,top: 12),
-              child:  Text(credential!.passwd,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w700),),
+              child:  Text(data[12].passwd,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w700),),
             ),
 
           ],

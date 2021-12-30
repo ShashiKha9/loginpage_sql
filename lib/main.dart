@@ -37,6 +37,8 @@ class LoginPageScreenState extends State<LoginPageScreen> {
         key: _formkey,
         child: Column(
         children: [
+          SizedBox(
+            height: 250,),
           Padding(padding:EdgeInsets.all(20),
          child: TextFormField(
             controller: emailController,
