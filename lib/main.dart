@@ -44,7 +44,6 @@ class LoginPageScreenState extends State<LoginPageScreen> {
             controller: emailController,
             decoration: InputDecoration(
               hintText: "email",
-
             ),
            validator: (value){
               if(value!.isEmpty){
@@ -52,8 +51,7 @@ class LoginPageScreenState extends State<LoginPageScreen> {
               }
            },
           ),
-          ),
-          //
+          ), //
           Padding(padding: EdgeInsets.all(20),
          child: TextFormField(
             controller: passController,
@@ -68,8 +66,8 @@ class LoginPageScreenState extends State<LoginPageScreen> {
           ),
           ),
           ElevatedButton(onPressed: (){
-            addData();
             if(_formkey.currentState!.validate()){
+              addData();
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomePageScreen()));
             }
 

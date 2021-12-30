@@ -60,10 +60,10 @@ class LoginDatabase{
     List<Map<String,dynamic>> update =await db.query(_tableName);
      return update.map((e) => LoginCredential.fromJson(e)).toList();
 
-
-
-
-
+  }
+  Future<void> delete() async {
+    final db = await instance.database;
+      await db.delete(_tableName);
   }
 
 }
